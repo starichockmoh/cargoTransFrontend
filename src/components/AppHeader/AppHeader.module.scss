@@ -1,0 +1,87 @@
+@import 'src/styles/colors';
+
+.app_header {
+  height: 64px;
+  background: $white;
+  display: flex;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 16px;
+  color: #525252;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  box-shadow: 0 0 5px 5px rgba(34, 60, 80, 0.04);
+  width: 100%;
+  border-bottom: solid 1px #e6e3e3;
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+  }
+
+  &__navigation {
+    height: 100%;
+    display: flex;
+    gap: 2vw;
+
+    &__hidden_last {
+      > div {
+        :last-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-self: right;
+    align-items: center;
+    padding-right: 2vw;
+    float: right;
+
+    .user {
+      display: flex;
+      gap: 5px;
+
+      button {
+        font-size: 17px;
+      }
+
+      &__lang {
+        button {
+          text-transform: uppercase;
+        }
+      }
+
+      &__logout {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.lang_select {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+@media (max-width: 1500px) {
+  .app_header {
+    &__bar {
+      gap: 1vw;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .app_header {
+    font-size: 90%;
+  }
+}
