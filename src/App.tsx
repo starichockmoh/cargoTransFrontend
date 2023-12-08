@@ -7,34 +7,34 @@ import { Button } from 'antd';
 
 function App() {
   useEffect(() => {
-    axios.get('http://localhost:3000/vehicles');
+    axios.get('http://localhost:3000/cargoes');
   }, []);
   const postCat = () => {
-    axios.post('http://localhost:3000/vehicles', {
-      model: 'Lada',
-      car_number: 'xxxx111xxxt',
-      date_of_manufacture: new Date().toISOString(),
-      lifting_capacity: 23.4,
-      group_id: 1,
+    axios.post('http://localhost:3000/cargoes', {
+      name: 'Груз 200',
+      weight: 200,
+      type_id: 1,
+      request_id: 1,
+      client_id: 1,
     });
   };
 
   const updateCat = () => {
-    axios.put('http://localhost:3000/vehicles/1', {
-      model: 'Lada',
-      car_number: 'xxxx111xxx',
-      date_of_manufacture: new Date().toISOString(),
-      lifting_capacity: 23.4,
-      group_id: 1,
-      id: 1,
+    axios.put('http://localhost:3000/cargoes/1', {
+      name: 'Груз 300',
+      weight: 300,
+      type_id: 1,
+      request_id: 1,
+      client_id: 1,
+      id: 1
     });
   };
   const getCat = () => {
-    axios.get('http://localhost:3000/vehicles/1');
+    axios.get('http://localhost:3000/cargoes/1');
   };
 
   const deleteCat = () => {
-    axios.delete('http://localhost:3000/vehicles/10');
+    axios.delete('http://localhost:3000/cargoes/2');
   };
 
   return (
