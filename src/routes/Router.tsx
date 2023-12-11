@@ -1,14 +1,14 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import {
   CARGO_TYPES,
-  VEHICLE_TYPES,
   CARGOES,
-  VEHICLES,
   CLIENTS,
   DRIVERS,
+  LOGIN,
   PICK_UP_POINTS,
   REQUESTS,
-  LOGIN,
+  VEHICLE_TYPES,
+  VEHICLES,
 } from 'routes/routes';
 import PageTable from 'pages/PageTable';
 import {
@@ -21,6 +21,7 @@ import {
   VEHICLE_COLUMNS,
   VEHICLE_TYPES_COLUMNS,
 } from 'shared/constants/columns';
+import { PageTypeEnum } from 'shared/types/tables.type';
 
 export default function Router() {
   return (
@@ -30,35 +31,66 @@ export default function Router() {
       <Route path={LOGIN} element={<Navigate to={REQUESTS} replace />} />
       <Route
         path={REQUESTS}
-        element={<PageTable dataSource={[]} columns={REQUEST_COLUMNS} />}
+        element={
+          <PageTable
+            columns={REQUEST_COLUMNS}
+            pageType={PageTypeEnum.REQUESTS}
+          />
+        }
       />
       <Route
         path={PICK_UP_POINTS}
-        element={<PageTable dataSource={[]} columns={PICKUP_POINT_COLUMNS} />}
+        element={
+          <PageTable
+            columns={PICKUP_POINT_COLUMNS}
+            pageType={PageTypeEnum.PICK_UP_POINTS}
+          />
+        }
       />
       <Route
         path={DRIVERS}
-        element={<PageTable dataSource={[]} columns={DRIVER_COLUMNS} />}
+        element={
+          <PageTable columns={DRIVER_COLUMNS} pageType={PageTypeEnum.DRIVERS} />
+        }
       />
       <Route
         path={CLIENTS}
-        element={<PageTable dataSource={[]} columns={CLIENT_COLUMNS} />}
+        element={
+          <PageTable columns={CLIENT_COLUMNS} pageType={PageTypeEnum.CLIENTS} />
+        }
       />
       <Route
         path={VEHICLES}
-        element={<PageTable dataSource={[]} columns={VEHICLE_COLUMNS} />}
+        element={
+          <PageTable
+            columns={VEHICLE_COLUMNS}
+            pageType={PageTypeEnum.VEHICLES}
+          />
+        }
       />
       <Route
         path={CARGOES}
-        element={<PageTable dataSource={[]} columns={CARGO_COLUMNS} />}
+        element={
+          <PageTable columns={CARGO_COLUMNS} pageType={PageTypeEnum.CARGOES} />
+        }
       />
       <Route
         path={VEHICLE_TYPES}
-        element={<PageTable dataSource={[]} columns={VEHICLE_TYPES_COLUMNS} />}
+        element={
+          <PageTable
+            columns={VEHICLE_TYPES_COLUMNS}
+            pageType={PageTypeEnum.VEHICLE_GROUPS}
+          />
+        }
       />
       <Route
         path={CARGO_TYPES}
-        element={<PageTable dataSource={[]} columns={CARGO_TYPES_COLUMNS} />}
+        element={
+          <PageTable
+            columns={CARGO_TYPES_COLUMNS}
+            pageType={PageTypeEnum.CARGO_TYPES}
+          />
+        }
       />
     </Routes>
   );

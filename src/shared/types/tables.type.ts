@@ -61,3 +61,14 @@ export interface IClient {
   username: string;
   password: string;
 }
+
+export enum PageTypeEnum {
+  CARGOES = 'cargoes',
+  REQUESTS = 'requests',
+  DRIVERS = 'drivers',
+  VEHICLES = 'vehicles',
+  CARGO_TYPES = 'cargo_types',
+  VEHICLE_GROUPS = 'vehicle_groups',
+  PICK_UP_POINTS = 'pick_up_points',
+  CLIENTS = 'clients',
+}
