@@ -2,10 +2,12 @@ export const MENU_CONSTANTS = [
   {
     label: 'Грузы',
     value: 'cargoes',
+    isUser: true,
   },
   {
     label: 'Заявки',
     value: 'requests',
+    isUser: true,
   },
   {
     label: 'Водители',

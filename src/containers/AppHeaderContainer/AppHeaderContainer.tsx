@@ -2,8 +2,12 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import AppHeader from 'components/AppHeader';
+import { AppHeaderContainerProps } from 'containers/AppHeaderContainer/AppHeaderContainer.type';
 
-export default function AppHeaderContainer() {
+export default function AppHeaderContainer({
+  setSuperUser,
+  isSuperUser,
+}: AppHeaderContainerProps) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -18,6 +22,11 @@ export default function AppHeaderContainer() {
   };
 
   return (
-    <AppHeader activeMenuItem={activeMenuItem} historyPush={historyPush} />
+    <AppHeader
+      activeMenuItem={activeMenuItem}
+      historyPush={historyPush}
+      isSuperUser={isSuperUser}
+      setSuperUser={setSuperUser}
+    />
   );
 }

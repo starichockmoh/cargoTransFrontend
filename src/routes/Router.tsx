@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
+import PageTable from 'pages/PageTable';
 import {
   CARGO_TYPES,
   CARGOES,
@@ -10,7 +11,6 @@ import {
   VEHICLE_TYPES,
   VEHICLES,
 } from 'routes/routes';
-import PageTable from 'pages/PageTable';
 import {
   CARGO_COLUMNS,
   CARGO_TYPES_COLUMNS,
@@ -23,7 +23,7 @@ import {
 } from 'shared/constants/columns';
 import { PageTypeEnum } from 'shared/types/tables.type';
 
-export default function Router() {
+export default function Router({ isSuperUser }: { isSuperUser: boolean }) {
   return (
     <Routes>
       <Route path="*" element={<Navigate to={REQUESTS} replace />} />
@@ -35,6 +35,7 @@ export default function Router() {
           <PageTable
             columns={REQUEST_COLUMNS}
             pageType={PageTypeEnum.REQUESTS}
+            isSuperUser={isSuperUser}
           />
         }
       />
@@ -44,19 +45,28 @@ export default function Router() {
           <PageTable
             columns={PICKUP_POINT_COLUMNS}
             pageType={PageTypeEnum.PICK_UP_POINTS}
+            isSuperUser={isSuperUser}
           />
         }
       />
       <Route
         path={DRIVERS}
         element={
-          <PageTable columns={DRIVER_COLUMNS} pageType={PageTypeEnum.DRIVERS} />
+          <PageTable
+            columns={DRIVER_COLUMNS}
+            isSuperUser={isSuperUser}
+            pageType={PageTypeEnum.DRIVERS}
+          />
         }
       />
       <Route
         path={CLIENTS}
         element={
-          <PageTable columns={CLIENT_COLUMNS} pageType={PageTypeEnum.CLIENTS} />
+          <PageTable
+            columns={CLIENT_COLUMNS}
+            isSuperUser={isSuperUser}
+            pageType={PageTypeEnum.CLIENTS}
+          />
         }
       />
       <Route
@@ -65,13 +75,18 @@ export default function Router() {
           <PageTable
             columns={VEHICLE_COLUMNS}
             pageType={PageTypeEnum.VEHICLES}
+            isSuperUser={isSuperUser}
           />
         }
       />
       <Route
         path={CARGOES}
         element={
-          <PageTable columns={CARGO_COLUMNS} pageType={PageTypeEnum.CARGOES} />
+          <PageTable
+            columns={CARGO_COLUMNS}
+            pageType={PageTypeEnum.CARGOES}
+            isSuperUser={isSuperUser}
+          />
         }
       />
       <Route
@@ -80,6 +95,7 @@ export default function Router() {
           <PageTable
             columns={VEHICLE_TYPES_COLUMNS}
             pageType={PageTypeEnum.VEHICLE_GROUPS}
+            isSuperUser={isSuperUser}
           />
         }
       />
@@ -88,6 +104,7 @@ export default function Router() {
         element={
           <PageTable
             columns={CARGO_TYPES_COLUMNS}
+            isSuperUser={isSuperUser}
             pageType={PageTypeEnum.CARGO_TYPES}
           />
         }

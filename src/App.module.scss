@@ -20,6 +20,13 @@
     margin-left: 10px;
     border-radius: 10px;
     border: solid 1px #e6e3e3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    audio {
+      width: 95%;
+    }
   }
 
   main {

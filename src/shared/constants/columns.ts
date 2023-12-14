@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const CARGO_COLUMNS = [
   {
     title: 'ID',
@@ -13,21 +15,28 @@ export const CARGO_COLUMNS = [
     title: 'Вес',
     dataIndex: 'weight',
     key: 'weight',
+    field: 'number',
   },
   {
     title: 'Заявка',
     dataIndex: 'request_id',
     key: 'request_id',
+    field: 'asyncSelect',
+    fetchOptions: () => axios.get('http://localhost:3000/requests'),
   },
   {
     title: 'Клиент',
     dataIndex: 'client_id',
     key: 'client_id',
+    field: 'asyncSelect',
+    fetchOptions: () => axios.get('http://localhost:3000/clients'),
   },
   {
     title: 'Тип груза',
     dataIndex: 'type_id',
     key: 'type_id',
+    field: 'asyncSelect',
+    fetchOptions: () => axios.get('http://localhost:3000/cargo_types'),
   },
 ];
 
@@ -51,26 +60,34 @@ export const REQUEST_COLUMNS = [
     title: 'Стоимость',
     dataIndex: 'cost',
     key: 'cost',
+    field: 'number',
   },
   {
     title: 'Дата создания',
     dataIndex: 'date_created',
     key: 'date_created',
+    field: 'date',
   },
   {
     title: 'Водитель',
     dataIndex: 'driver_id',
     key: 'driver_id',
+    field: 'asyncSelect',
+    fetchOptions: () => axios.get('http://localhost:3000/drivers'),
   },
   {
     title: 'ТС',
     dataIndex: 'vehicle_id',
     key: 'vehicle_id',
+    field: 'asyncSelect',
+    fetchOptions: () => axios.get('http://localhost:3000/vehicles'),
   },
   {
     title: 'Статус',
     dataIndex: 'status_id',
     key: 'status_id',
+    field: 'asyncSelect',
+    fetchOptions: () => axios.get('http://localhost:3000/request_statuses'),
   },
 ];
 
@@ -99,6 +116,7 @@ export const DRIVER_COLUMNS = [
     title: 'Опыт',
     dataIndex: 'experience',
     key: 'experience',
+    field: 'number',
   },
 ];
 
@@ -122,16 +140,20 @@ export const VEHICLE_COLUMNS = [
     title: 'Вместимость',
     dataIndex: 'lifting_capacity',
     key: 'lifting_capacity',
+    field: 'number',
   },
   {
     title: 'Дата производства',
     dataIndex: 'date_of_manufacture',
     key: 'date_of_manufacture',
+    field: 'date',
   },
   {
     title: 'Группа ТС',
     dataIndex: 'group_id',
     key: 'group_id',
+    field: 'asyncSelect',
+    fetchOptions: () => axios.get('http://localhost:3000/vehicle_groups'),
   },
 ];
 

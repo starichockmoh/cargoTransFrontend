@@ -1,0 +1,15 @@
+@import "src/styles/colors";
+
+.buttons_block {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.cost_value {
+  color: $main-blue;
+}
